@@ -11,6 +11,11 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { ContactComponent } from './contact/contact.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService } from './in-memory-data.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,12 +26,18 @@ import { CarouselComponent } from './carousel/carousel.component';
     SignInComponent,
     ContactComponent,
     MainPageComponent,
-    CarouselComponent
+    CarouselComponent,
+    VehicleDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    HttpClientModule,
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //   InMemoryDataService, { dataEncapsulation: false }
+    // )
   ],
   providers: [],
   bootstrap: [AppComponent]

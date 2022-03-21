@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Vehicles } from '../Vehicles';
+import { VehicleService } from '../vehicle.service';
+// import { Vehicle } from '../Vehicles';
+import { CrudService } from '../crud.service';
 
 @Component({
   selector: 'app-all-vehicles',
@@ -7,25 +9,22 @@ import { Vehicles } from '../Vehicles';
   styleUrls: ['./all-vehicles.component.css']
 })
 export class AllVehiclesComponent implements OnInit {
-  vehicles: Vehicles[] = [
-    {
-      id: '1',
-      marque: 'Mercedes',
-      model: 'e300',
-      categorie: 'berline',
-      image: '/assets/images/mercedes.jpg'
-  },
-  {
-    id: '2',
-    marque: 'bmw',
-    model: 'm5',
-    categorie: 'coupé',
-    image: '/assets/images/bmw.jpg'
-  }
-  ];
-  constructor() { }
+  vehicles: any = [];
+  constructor(private vehiclesService: VehicleService, private crudService: CrudService) { }
 
   ngOnInit(): void {
+    // this.getVehicles();
+    this.crudService.getCars().subscribe(
+      res => {
+        console.log(res)
+        this.vehicles = res;
+    }
+
+    )
   }
+  // getVehicles():void {
+  //   this.vehiclesService.getAll()
+  //   .subscribe(vehicles => this.vehicles = vehicles)
+  // }
 
 }

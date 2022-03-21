@@ -1,0 +1,11 @@
+<div>
+    <app-carousel></app-carousel>
+    <div *ngIf="vehicle"> -->
+        <h2 class="bg-warning">{{vehicle.model | uppercase}}</h2>
+        <h2 class="card-title text-danger">{{vehicle.marque}}</h2>
+            <h2 class="text-danger">{{vehicle.model}}</h2>
+            <h2 class="text-danger">{{vehicle.categorie}}</h2>
+            <img src="{{vehicle.image}}" class="text-danger" style="width: 50%;">
+            <button class="btn btn-outline-warning m-2" (click)="goBack()">Retourner</button>
+    </div>
+</div>
