@@ -35,9 +35,6 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     FormsModule,
     HttpClientModule,
-    // HttpClientInMemoryWebApiModule.forRoot(
-    //   InMemoryDataService, { dataEncapsulation: false }
-    // )
   ],
   providers: [],
   bootstrap: [AppComponent]

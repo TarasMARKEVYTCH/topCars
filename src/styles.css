@@ -171,8 +171,8 @@ input[type='file']{
     position: absolute;
     width: 100%;
     background-color: rgb(180, 154, 168);
-    top:50%;
-    z-index: 2;
+    top:45%;
+    z-index: 10;
     transform: rotate(37deg);
 }
                                              /* ================== all Cars ============== */

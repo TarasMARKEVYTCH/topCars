@@ -30,3 +30,14 @@ exports.queryOneCar = (id) => {
         })
     })
 }
+exports.getTop = () => {
+    return new Promise((resolve, reject) => {
+        dbConnect.query(`SELECT * FROM cars WHERE access = 1 order by year DESC LIMIT 9`, (err, results) => {
+            if(err){
+                reject(err)
+            } else {
+                resolve(results)
+            }
+        })
+    })
+}

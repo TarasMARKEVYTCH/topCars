@@ -33,6 +33,6 @@ app.use((req,res, next) => {
 })
 app.use(bodyParser.json());
 const vehiclesRouter = require("./routers/vehicles");
-app.use('/api/vehicles', vehiclesRouter);
+app.use('/api/', vehiclesRouter);
 
 module.exports = app;

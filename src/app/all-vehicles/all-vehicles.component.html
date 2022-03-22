@@ -1,12 +1,11 @@
 <div>
     <app-carousel></app-carousel>
-    <ul class="w-100 d-flex flex-wrap justify-content-evenly">
-        <li *ngFor="let vhl of vehicles" class="card bg-warning col-12 col-md-4" style="width: 25rem;">
-            <h2 class="card-title text-danger">{{vhl.marque}}</h2>
-            <h2 class="text-danger">{{vhl.model}}</h2>
-            <h2 class="text-danger">{{vhl.categorie}}</h2>
-            
-            <a routerLink="/detail/{{vhl.id}}"><img src="{{vhl.image}}" class="text-danger" style="width: 100%;"></a>
+    <ul class="w-100 d-flex flex-wrap justify-content-evenly gap-3">
+        <li *ngFor="let vhl of vehicles" class="card bg-warning col-12 col-md-4 p-1" style="width: 25rem;">
+            <h2 class="card-title text-danger">{{vhl.name}}</h2>
+            <h2 class="text-danger">{{vhl.model}}</h2>            
+            <a routerLink="/detail/{{vhl.car_id}}"><img src="/assets/images/{{vhl.car_img}}" class="text-danger" style="width: 100%;"></a>
+            <h2 *ngIf="vhl.access === 0" class="text-danger text-center booked-text mx-auto">Reserved</h2>
 
         </li>
     </ul>

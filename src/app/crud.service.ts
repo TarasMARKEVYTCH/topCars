@@ -1,16 +1,23 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { Vehicle } from './Vehicles';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrudService {
-  REST_API: string = 'http://localhost:4200/';
+  REST_API: string = 'http://localhost:3000/api/';
   httpHeaders = new HttpHeaders().set('Content-Type','application/json');
   constructor(private httpClient: HttpClient) {}
-  getCars(){
-    return this.httpClient.get(`${this.REST_API}/vehicles`);
+  getCars(): Observable<Vehicle>{
+    return this.httpClient.get<Vehicle>(`${this.REST_API}/vehicles`);
+  }
+  getOneCar(id: number){
+    return this.httpClient.get(`${this.REST_API}/${id}`);
+  }
+  getTop(){
+    return this.httpClient.get<Vehicle>(`${this.REST_API}`);
   }
   handleError(error: HttpErrorResponse){
     let errorMessage = '';

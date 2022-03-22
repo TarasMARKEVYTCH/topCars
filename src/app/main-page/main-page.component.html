@@ -51,17 +51,15 @@
                     </div>
             </div>
         </section>
-        <section class="d-flex flex-wrap bg-warning">
+        <section class="d-flex flex-wrap bg-warning w-100 gap-3 p-1 justify-content-center">
             <h2 class="text-center fw-bold m-4 w-100 text-decoration-underline">Notre TOP</h2>
-            <div class="car-list d-flex flex-wrap col-12 mx-auto justify-content-around gap-3">
-                        <div class="card bg-dark col-12 col-md-4" style="width: 25rem;">
-                            <form action="#">
+            <div *ngFor="let vhl of vehicles" class="car-list d-flex flex-wrap justify-content-around">
+                        <div class="card bg-dark col-md-3" style="width: 25rem;">
                                 <div class="card-body">
-                                    <h3 class="card-title text-warning"></h3>
-                                    <h5 class="card-title text-warning"></h5>
+                                    <h3 class="card-title text-warning">{{vhl.name}}</h3>
+                                    <h5 class="card-title text-warning">{{vhl.model}}</h5>
                                 </div>
-                            </form>
-                            <a href=""><img src="" class="card-img-top" alt="..."></a>
+                            <a routerLink="/detail/{{vhl.car_id}}"><img src="/assets/images/{{ vhl.car_img }}" class="card-img-top" alt="..."></a>
                         </div>
             </div>
             <div class="d-flex w-100">

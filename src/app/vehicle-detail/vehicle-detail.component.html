@@ -1,11 +1,17 @@
-<div>
+<!-- <div> -->
     <app-carousel></app-carousel>
-    <div *ngIf="vehicle"> -->
-        <h2 class="bg-warning">{{vehicle.model | uppercase}}</h2>
-        <h2 class="card-title text-danger">{{vehicle.marque}}</h2>
-            <h2 class="text-danger">{{vehicle.model}}</h2>
-            <h2 class="text-danger">{{vehicle.categorie}}</h2>
-            <img src="{{vehicle.image}}" class="text-danger" style="width: 50%;">
-            <button class="btn btn-outline-warning m-2" (click)="goBack()">Retourner</button>
-    </div>
-</div>
+    <article *ngIf="vehicle" class="d-flex flex-wrap justify-content-center p-3">
+        <div class="d-flex justify-content-center flex-wrap p-3">
+            <h1 class="card-title text-danger">{{vehicle.name}}</h1>
+            <h2 class="bg-warning w-100 text-center">{{vehicle.model | uppercase}}</h2>
+            <h3 class="text-white w-100 text-start"><span class="text-warning">Année:</span> {{vehicle.year}}</h3>
+            <h3 class="text-white w-100 text-start"><span class="text-warning">Moteur:</span> {{vehicle.engine}}</h3>
+            <h3 class="text-white w-100 text-start"><span class="text-warning">Boite de vitesses:</span> {{vehicle.gearbox}}</h3>
+            <h3 class="text-white w-100 text-start"><span class="text-warning">Places:</span> {{vehicle.seats}}</h3>
+            <h4 class="text-white w-100 text-start"><span class="text-warning">Déscription: </span>{{vehicle.description}}</h4>
+            <img src="/assets/images/{{vehicle.car_img}}" class="text-danger" style="width: 50%;">
+            <button *ngIf="vehicle.access === 1" class="btn btn-outline-primary w-75">Reserver</button>
+        </div>
+            <button class="btn btn-outline-warning mt-5 w-25 mx-auto" (click)="goBack()">Retourner</button>
+        </article>
+<!-- </div> -->
