@@ -1,5 +1,3 @@
-// import http from "http";
-// import app from "./app.js";
 const http = require("http");
 const app = require("./app");
 const normalizePort = (val) => {

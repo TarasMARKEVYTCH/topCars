@@ -1,5 +1,6 @@
-import bodyParser from "body-parser";
-import { express } from "express";
+
+const bodyParser = require ("body-parser");
+const express = require("express");
 const mysql = require ('mysql');
 const dotenv = require('dotenv').config()
 
@@ -20,6 +21,7 @@ dbConnect.connect((err)=>{
 dbConnect.end();
 
 const app = express();
+
 app.use((req,res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
     res.setHeader("Access-Control-Allow-Credentials", true);
@@ -30,5 +32,7 @@ app.use((req,res, next) => {
     next();
 })
 app.use(bodyParser.json());
+const vehiclesRouter = require("./routers/vehicles");
+app.use('/api/vehicles', vehiclesRouter);
 
-export default app;
+module.exports = app;
