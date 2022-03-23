@@ -8,15 +8,21 @@ import { CrudService } from '../crud.service';
 })
 export class MainPageComponent implements OnInit {
   vehicles: any
+  categories: any
 
   constructor(private crudService: CrudService) { }
 
   ngOnInit(): void {
     this.crudService.getTop().subscribe(
       res => {
-        console.log(res);
+        // console.log(res);
         this.vehicles = res;
-        
+      }
+    )
+    this.crudService.getCategories().subscribe(
+      res => {
+        // console.log(res);
+        this.categories = res;
       }
     )
   }

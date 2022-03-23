@@ -7,6 +7,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { ContactComponent } from './contact/contact.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.component';
+import { CategorieComponent } from './categorie/categorie.component';
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'sign-Up', component: SignUpComponent},
   {path: 'sign-In', component: SignInComponent},
   {path: 'contact', component: ContactComponent},
-  {path: 'detail/:id', component: VehicleDetailComponent}
+  {path: 'detail/:id', component: VehicleDetailComponent},
+  {path: 'categories/:id', component: CategorieComponent}
 
 ];
 

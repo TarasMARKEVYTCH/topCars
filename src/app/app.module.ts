@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataService } from './in-memory-data.service';
 import { FormsModule } from '@angular/forms';
+import { CategorieComponent } from './categorie/categorie.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     ContactComponent,
     MainPageComponent,
     CarouselComponent,
-    VehicleDetailComponent
+    VehicleDetailComponent,
+    CategorieComponent
   ],
   imports: [
     BrowserModule,

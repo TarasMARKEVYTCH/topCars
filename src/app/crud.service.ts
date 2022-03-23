@@ -19,6 +19,13 @@ export class CrudService {
   getTop(){
     return this.httpClient.get<Vehicle>(`${this.REST_API}`);
   }
+  getCategories(){
+    return this.httpClient.get(`${this.REST_API}/categories`)
+  }
+  getOneCategorie(id: number){
+    console.log(id);
+    return this.httpClient.get(`${this.REST_API}/categories/${id}`);
+  }
   handleError(error: HttpErrorResponse){
     let errorMessage = '';
     if(error.error instanceof ErrorEvent){

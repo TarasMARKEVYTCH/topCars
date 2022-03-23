@@ -25,29 +25,9 @@
         <section class="categories d-flex flex-wrap justify-content-center align-items-center gap-3">
             <div class="row">
                 <h2 class="text-center text-warning mt-4">Nos categories</h2>
-                    <div class="col-sm-12 col-md-4 cat-item d-flex flex-column justify-content-end p-3">
-                        <div class="img d-flex align-items-center"><img src="/assets/images/electric.png" alt="" class="cat-img"></div>
-                        <a href="" class="btn btn-outline-warning cat-button">Electric</a>
-                    </div>
-                    <div class="col-sm-12 col-md-4 cat-item d-flex flex-column justify-content-end p-3">
-                        <div class="img d-flex align-items-center"><img src="/assets/images/4x4.png" alt="" class="cat-img"></div>
-                        <a href="" class="btn btn-outline-warning cat-button">4x4</a>
-                    </div>
-                    <div class="col-sm-12 col-md-4 cat-item d-flex flex-column justify-content-end p-3">
-                        <div class="img d-flex align-items-center"><img src="/assets/images/coupe.png" alt="" class="cat-img"></div>
-                        <a href="" class="btn btn-outline-warning cat-button">Coupé</a>
-                    </div>
-                    <div class="col-sm-12 col-md-4 cat-item d-flex flex-column justify-content-end p-3">
-                        <div class="img d-flex align-items-center"><img src="/assets/images/Sedan.png" alt="" class="cat-img"></div>
-                        <a href="" class="btn btn-outline-warning cat-button">Berline</a>
-                    </div>
-                    <div class="col-sm-12 col-md-4 cat-item d-flex flex-column justify-content-end p-3">
-                        <div class="img d-flex align-items-center"><img src="/assets/images/suv.png" alt="" class="cat-img"></div>
-                        <a href="" class="btn btn-outline-warning cat-button">SUV</a>
-                    </div>
-                    <div class="col-sm-12 col-md-4 cat-item d-flex flex-column justify-content-end p-3">
-                        <div class="img d-flex align-items-center"><img src="/assets/images/Honda.png" alt="" class="cat-img"></div>
-                        <a href="" class="btn btn-outline-warning cat-button">Citadine</a>
+                    <div *ngFor="let cat of categories" class="col-sm-12 col-md-4 cat-item d-flex flex-column justify-content-end p-3">
+                        <div class="img d-flex align-items-center"><img src="/assets/images/{{cat.categorie_img}}" alt="" class="cat-img"></div>
+                        <a routerLink="/categories/{{cat.categorie_id}}" class="btn btn-outline-warning cat-button">{{cat.categorie_name}}</a>
                     </div>
             </div>
         </section>

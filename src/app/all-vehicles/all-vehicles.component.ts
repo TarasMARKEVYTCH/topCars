@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehicleService } from '../vehicle.service';
-// import { Vehicle } from '../Vehicles';
+import { Vehicle } from '../Vehicles';
 import { CrudService } from '../crud.service';
 
 @Component({

@@ -1,0 +1,12 @@
+<div>
+    <app-carousel></app-carousel>
+    <h1 *ngIf="vehicles" class="text-warning text-center m-4">Toutes nos voitures de categorie <span class="text-danger">{{vehicles[1].categorie_name}}</span></h1>
+    <ul class="d-flex flex-wrap justify-content-evenly w-100 gap-3">
+        <li *ngFor="let car of vehicles" class="card bg-warning col-12 col-md-4 p-1" style="width: 25rem;">
+            <h2 class="card-title text-danger">{{car.name}}</h2>
+            <h2 class="text-danger">{{car.model}}</h2>            
+            <a routerLink="/detail/{{car.car_id}}"><img src="/assets/images/{{car.car_img}}" class="text-danger" style="width: 100%;"></a>
+        </li>
+    </ul>
+    <p class="text-center"><button class="btn btn-outline-warning mt-5 w-25 " (click)="goBack()">Retourner</button></p>
+</div>
