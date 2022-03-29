@@ -1,16 +1,9 @@
 
 const bodyParser = require ("body-parser");
 const express = require("express");
-const mysql = require ('mysql');
 const dotenv = require('dotenv').config()
 
-const dbConnect = mysql.createConnection({
-    host: process.env.hostDB,
-    port: process.env.portDB,
-    user: process.env.userDB,
-    password: process.env.passDB,
-    database: process.env.database
-});
+const dbConnect = require("./config/dbConnection");
 dbConnect.connect((err)=>{
     if(err){
         return console.log('Oops, --ERROR: ' + err.message);

@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { VehicleService } from '../vehicle.service';
 import { Vehicle } from '../Vehicles';
 import { Location } from '@angular/common';
-import { CrudService } from '../crud.service';
+import { CrudService } from '../services/crud.service';
 
 @Component({
   selector: 'app-vehicle-detail',
@@ -12,15 +11,15 @@ import { CrudService } from '../crud.service';
 })
 export class VehicleDetailComponent implements OnInit {
 @Input() vehicle?: Vehicle | any
-  constructor(private route: ActivatedRoute, private vehicleService: VehicleService, private crudService: CrudService, private locatioin: Location) { }
+  constructor(private route: ActivatedRoute, private crudService: CrudService, private locatioin: Location) { }
 
-  getVhl(): void{
+  async getVhl(): Promise<void>{
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.crudService.getOneCar(id)
-    .subscribe(vehicle => this.vehicle = vehicle);
+    (await this.crudService.getOneCar(id))
+    .subscribe((vehicle: any) => this.vehicle = vehicle);
   }
   
-  ngOnInit(): void {
+  ngOnInit() {
     this.getVhl();
   }
   goBack(): void{

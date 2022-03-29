@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CrudService } from '../crud.service';
+import { CrudService } from '../services/crud.service';
 
 @Component({
   selector: 'app-main-page',
@@ -12,14 +12,14 @@ export class MainPageComponent implements OnInit {
 
   constructor(private crudService: CrudService) { }
 
-  ngOnInit(): void {
-    this.crudService.getTop().subscribe(
+   async ngOnInit(): Promise<void> {
+   (await this.crudService.getTop()).subscribe(
       res => {
         // console.log(res);
         this.vehicles = res;
       }
-    )
-    this.crudService.getCategories().subscribe(
+    );
+    (await this.crudService.getCategories()).subscribe(
       res => {
         // console.log(res);
         this.categories = res;

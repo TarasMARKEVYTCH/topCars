@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Categorie } from '../Categories';
 import { Vehicle } from '../Vehicles';
-import { CrudService } from '../crud.service';
+import { CrudService } from '../services/crud.service';
 import { Location } from '@angular/common';
 
 @Component({
@@ -13,9 +13,9 @@ import { Location } from '@angular/common';
 export class CategorieComponent implements OnInit {
 vehicles: any = [];
   constructor(private route: ActivatedRoute, private crudService: CrudService, private location: Location) { }
-getCategorie(): void{
+async getCategorie(): Promise<void>{
   const id = Number(this.route.snapshot.paramMap.get('id'));
-  this.crudService.getOneCategorie(id)
+  (await this.crudService.getOneCategorie(id))
   .subscribe(res => {
     console.log(res);
     this.vehicles = res

@@ -1,18 +1,40 @@
 <div>
-    <main class="d-flex flex-column align-items-center text-center login h-100">
-        <form class="d-flex flex-column gap-2 align-items-start text-center my-auto connect-form m-3 p-5" method="POST" action="#">
+    <main class="d-flex flex-column align-items-center text-center login">
+        <form [formGroup]="signupForm" (ngSubmit)="create()" class="d-flex flex-column gap-2 align-items-start text-center my-auto connect-form m-3 p-5" method="POST" action="#">
             <h2 class="mx-auto text-info">Sign Up</h2>
-            <label for="name" class="text-info">Nom :</label>
-            <input type="text" name="name" id="name" placeholder="Nom">
-            <label for="mail1" class="text-info">Email :</label>
-            <input type="email" name="mail1" id="mail1" placeholder="Email">
-            <label for="mail2" class="text-info">Confirmer email :</label>
-            <input type="email" name="mail2" id="mail2" placeholder="Email">
-            <label for="pass1" class="text-info">Mot de passe :</label>
-            <input type="password" name="pass1" id="pass1" placeholder="Mot de passe">
-            <label for="pass2" class="text-info">Confirmer mot de passe:</label>
-            <input type="password" name="pass2" id="pass2" placeholder="Mot de passe">
-            <button type="submit" class=" btn mx-auto btn-outline-info mt-2 p-2" id="signup" name="signup">Créer mon compte</button>
+            <div class="form-group">
+                <div class="d-flex error w-100 justify-content-end">
+                    <span class="text-danger" *ngIf="signupForm.controls['name'].dirty && signupForm.hasError('required', 'name')">*Name is required</span>
+                    <span class="text-danger" *ngIf="signupForm.controls['name'].dirty && signupForm.hasError('minlength', 'name')">*Name is 3 caract min</span>
+                </div>
+                <label for="name" class="text-info">Nom :</label>
+                <input type="text" formControlName="name" class="form-control" id="name" placeholder="Nom" >
+            </div>
+            <div class="form-group">
+                <div class="d-flex error w-100 justify-content-end">
+                    <span class="text-danger" *ngIf="signupForm.controls['mail1'].dirty && signupForm.hasError('required', 'mail1')">*Email is required</span>
+                    <span class="text-danger" *ngIf="signupForm.controls['mail1'].dirty && signupForm.hasError('email', 'mail1')">*Email is not valid</span>
+                </div>
+                <label for="mail1" class="text-info">Email :</label>
+                <input type="email" formControlName="mail1" class="form-control" id="mail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <div class="d-flex error w-100 justify-content-end">
+                    <span class="text-danger" *ngIf="signupForm.controls['pass1'].dirty && signupForm.hasError('required', 'pass1')">*Password is required</span>
+                    <span class="text-danger" *ngIf="signupForm.controls['pass1'].invalid && signupForm.hasError('minlength', 'pass1')">*Password must be min 6 caracters</span>
+                </div>
+                <label for="pass1" class="text-info">Mot de passe :</label>
+                <input type="password" formControlName="pass1" class="form-control" id="pass1" placeholder="Mot de passe">
+            </div>
+            <div class="form-group">
+                <div class="d-flex error w-100 justify-content-end">
+                    <span class="text-danger" *ngIf="signupForm.controls['pass2'].dirty && signupForm.hasError('required', 'pass2')">*Password is required</span>
+                    <span class="text-danger" *ngIf="signupForm.controls['pass2'].dirty && signupForm.controls['pass1'].value !== signupForm.controls['pass2'].value">*Passwords not match</span>
+                </div>
+                <label for="pass2" class="text-info">Confirmer mot de passe:</label>
+                <input type="password" formControlName="pass2" class="form-control" id="pass2" placeholder="Mot de passe">
+            </div>
+            <button type="submit" [disabled]="!signupForm.valid" class=" btn mx-auto btn-outline-info mt-2 p-2" id="signup" name="signup">Créer mon compte</button>
             <a routerLink="/" class="mx-auto text-warning">Page d'accueil</a>
         </form>
     </main>

@@ -116,9 +116,10 @@ footer{
     width: 100%;
     border-radius: 5px;
 }
-.login{
-    /* background-color: #111; */
-    margin-top: 50px;
+.form-group{
+    width: 100%;
+    text-align: left;
+    margin-top: 0.5rem;
 }
 #connect{
     width: 50%;

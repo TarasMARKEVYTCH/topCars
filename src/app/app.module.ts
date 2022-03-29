@@ -15,7 +15,7 @@ import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.componen
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataService } from './in-memory-data.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategorieComponent } from './categorie/categorie.component';
 
 @NgModule({
@@ -37,6 +37,7 @@ import { CategorieComponent } from './categorie/categorie.component';
     NgbModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
